@@ -33,6 +33,12 @@ export function storeUser(user) {
     console.log('stored user.')
 }
 
+
+export const storeRoute = (route) => {
+    firebase.database().ref().child('routes').child(user.uid)
+        .set({ route })
+}
+
 export function ifUserNotFound(uid, cb) {
     getUser(uid, (user) => {
         if(!user) {
