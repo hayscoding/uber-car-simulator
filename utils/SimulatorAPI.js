@@ -21,13 +21,13 @@ export function animateThruCoords(coords) {
     // console.log('COORDS LENGTH: ', coords.length, 'NEXT COORDS LENGTH: ', nextCoords.length)
 
     if(coords.length != 0)
-        this.animate(coords[0], () => { this.animateThruCoords(nextCoords) })
+        animate(coords[0], () => { animateThruCoords(nextCoords) })
 }
 
 export function startAnimation() {
-    if(this.state.route != null) {
-        console.log('STARTANIMATION() ROUTE: ', this.state.route.length, '\nFIRST COORD: ', this.state.route[0])
-        this.animateThruCoords(0, this.state.route)
+    if(state.route != null) {
+        console.log('STARTANIMATION() ROUTE: ', state.route.length, '\nFIRST COORD: ', state.route[0])
+        animateThruCoords(0, state.route)
     }
 }
 
@@ -39,12 +39,12 @@ export function animateMarker(index, coord, cb) {
         longitude: coord.longitude,
     };
 
-    this.state.markerCoordinates[index].timing(nextCoord).start(() => { cb() });
+    state.markerCoordinates[index].timing(nextCoord).start(() => { cb() });
 }
 
 export function startAnimation() {
-    if(this.state.route != null) {
-        console.log('STARTANIMATION() ROUTE: ', this.state.route.length, '\nFIRST COORD: ', this.state.route[0])
-        this.animateThruCoords(0, this.state.route)
+    if(state.route != null) {
+        console.log('STARTANIMATION() ROUTE: ', state.route.length, '\nFIRST COORD: ', state.route[0])
+        animateThruCoords(0, state.route)
     }
 }
