@@ -10,7 +10,16 @@ var usersRouter = require('./routes/users');
 var simulatorRouter = require('./routes/simulator');
 
 var app = express();
+var config = require('./config');
 
+firebase.initializeApp({
+	apiKey: config.FB_KEY,
+	authDomain: config.FB_AUTH_DOMAIN,
+	databaseURL: config.FB_DB_URL,
+	projectId: config.FB_PROJECT,
+	storageBucket: config.FB_STORAGE_BUCKET,
+	messagingSenderId: config.FB_MSG_ID
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -1,4 +1,3 @@
-// var env = 'production'
 var config = require('../config');
 
 const apiKey = config.googleDirectionsAPI.key
