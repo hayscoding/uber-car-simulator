@@ -9,8 +9,7 @@ function writePolylinesJson(polylines) {
 
 	fs.writeFile('./public/json/polylines.json', json, 'utf8', (err) => { 
 		if(err)
-	
-	throw err
+			throw err
 		else
 			console.log('wrote JSON to polylines.json')
 	});
