@@ -30,7 +30,6 @@ module.exports = router;
 // ######### 	FUNCTIONS    ##########
 // ####################################
 
-
 function writePolylinesJson(polylines) {
 	var json = JSON.stringify(polylines);
 
