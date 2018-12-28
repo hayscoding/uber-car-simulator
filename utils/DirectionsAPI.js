@@ -28,9 +28,10 @@ const routesNearHome = [
 	// },
 ]
 
+exports.getSimulatorPolylines = getSimulatorPolylines
 
 //Returns the coordinates for the each route located in the routesNearHome array
-export async function getSimulatorPolylines(cb) {
+async function getSimulatorPolylines(cb) {
 	console.log('getSimulatorPolylines called ')
 
 	const routes = formatRouteAddresses(routesNearHome)
@@ -51,7 +52,7 @@ const iterateThruRoute = (routes) => {
       this.animate(coords[0], () => { this.animateThruCoords(nextCoords) })
 }
 
-export const getDirections = (origin, destination, cb) => {
+const getDirections = (origin, destination, cb) => {
 	return fetch('https://maps.googleapis.com/maps/api/directions/json?origin='+origin+'&destination='+destination+'&key='+apiKey)
 		.then((res) => res.json())
 		.then((resJson) => {
@@ -81,13 +82,13 @@ const formatRouteAddresses = (routes) => {
 }	
 
 //Replaces commas and spaces with '+' signs
-export const formatAddress = (address) => {
+const formatAddress = (address) => {
 	var formattedAddress = address.split(',').join('').split(' ').join('+')
 
 	return formattedAddress
 }
 
-export const disneylandDirections = (cb) => {
+const disneylandDirections = (cb) => {
 	fetch('https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key='+apiKey)
 		.then((res) => res.json())
 		.then((resJson) => {
@@ -103,7 +104,7 @@ export const disneylandDirections = (cb) => {
 		})
 }
 
-export const getExamplePolyline = (cb) => {
+const getExamplePolyline = (cb) => {
 	const origin = '306+W+38TH+ST+AUSTIN+TX'
 	const destination="Kerbey+Lane+Cafe"
 
