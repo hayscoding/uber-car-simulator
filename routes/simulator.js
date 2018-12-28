@@ -15,6 +15,10 @@ function writePolylinesJson(polylines) {
 	});
 }
 
+function readPolylinesJson() {
+	return fs.readFileSync('./public/json/polylines.json', 'utf8');
+}
+
 router.get('/', function(req, res, next) {
 	res.render('simulator', { title: 'Uber Clone Simulator' });
 });
@@ -28,13 +32,8 @@ router.get('/store', function(req, res, next) {
 })
 
 router.get('/start', function(req, res, next) {
-	fs.readFile('./public/json/polylines.json', function read(err, data) {
-	    if (err) {
-	        throw err;
-	    }
-  		
-  		res.render('polylines', { polylines: data });
-	});
+	const data = readPolylinesJson()
+	res.render('polylines', { polylines: data });
 });
 
 module.exports = router;
