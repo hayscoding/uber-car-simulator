@@ -4,23 +4,27 @@ var fs = require('fs');
 
 var DirectionsAPI = require('../utils/DirectionsAPI')
 
+function writePolylinesJson(polylines) {
+	var json = JSON.stringify(polylines);
+
+	fs.writeFile('./public/json/polylines.json', json, 'utf8', (err) => { 
+		if(err)
+	
+	throw err
+		else
+			console.log('wrote JSON to polylines.json')
+	});
+}
+
 router.get('/', function(req, res, next) {
 	res.render('simulator', { title: 'Uber Clone Simulator' });
 });
 
 router.get('/store', function(req, res, next) {
 	DirectionsAPI.getSimulatorPolylines((polylines) => {
-		var json = JSON.stringify(polylines);
-
 		// console.log('json: ',json)
-		fs.writeFile('./public/json/polylines.json', json, 'utf8', (err) => { 
-			if(err)
-				throw err
-			else
-				console.log('wrote JSON to polylines.json')
-		});
+		writePolylinesJson(polylines)
 	})
-
   	res.render('message', {message: 'Storing new polylines...'});
 })
 
