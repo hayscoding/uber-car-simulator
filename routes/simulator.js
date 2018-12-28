@@ -22,7 +22,7 @@ router.get('/store', function(req, res, next) {
 		});
 	})
 
-  	res.render('polylines', { polylines: store });
+  	res.render('message', {message: 'Storing new polylines...'});
 })
 
 router.get('/start', function(req, res, next) {
