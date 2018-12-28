@@ -1,25 +1,32 @@
 var express = require('express');
 var router = express.Router();
+var fs = require('fs');
 
 var DirectionsAPI = require('../utils/DirectionsAPI')
-
-var polylines = [
-	'polyline1',
-	'polyline2',
-	'polyline3',
-]
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	res.render('simulator', { title: 'Uber Clone Simulator' });
 });
 
-router.get('/start', function(req, res, next) {
+router.get('/store', function(req, res, next) {
 	DirectionsAPI.getSimulatorPolylines((polylines) => {
-		console.log('polylines: ', polylines)
+		var json = JSON.stringify(polylines);
+
+		// console.log('json: ',json)
+		fs.writeFile('./public/json/polylines.json', json, 'utf8', (err) => { 
+			if(err)
+				throw err
+			else
+				console.log('wrote JSON to polylines.json')
+		});
 	})
-	
-  	res.render('polylines', { polylines: polylines });
+
+  	res.render('polylines', { polylines: store });
+})
+
+router.get('/start', function(req, res, next) {
+  	res.render('polylines', { polylines: store });
 });
 
 module.exports = router;

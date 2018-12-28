@@ -59,11 +59,17 @@ const getDirections = (origin, destination, cb) => {
 			var polylineCoords = null;
 
 			if (resJson.routes.length)
-      	polylineCoords = decode(resJson.routes[0].overview_polyline.points)
+      			polylineCoords = decode(resJson.routes[0].overview_polyline.points)
+      		else
+      			console.log(resJson.error_message, resJson.status)
 
-      console.log('POLYLINE COORDS: ', polylineCoords)
+			// console.log('==================================')
+			// console.log('Origin: ', origin, 'destination: ', destination)
+			// console.log('Polylines: ', polylineCoords)
+			// // console.log('JSON Data: ', resJson)
+			// console.log('==================================')
 
-    	cb(polylineCoords)
+			cb(polylineCoords)
 		})
 		.catch((err) => {
 			console.error(err)
