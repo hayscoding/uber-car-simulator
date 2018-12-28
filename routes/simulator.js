@@ -4,21 +4,6 @@ var fs = require('fs');
 
 var DirectionsAPI = require('../utils/DirectionsAPI')
 
-function writePolylinesJson(polylines) {
-	var json = JSON.stringify(polylines);
-
-	fs.writeFile('./public/json/polylines.json', json, 'utf8', (err) => { 
-		if(err)
-			throw err
-		else
-			console.log('wrote JSON to polylines.json')
-	});
-}
-
-function readPolylinesJson() {
-	return fs.readFileSync('./public/json/polylines.json', 'utf8');
-}
-
 router.get('/', function(req, res, next) {
 	res.render('simulator', { title: 'Uber Clone Simulator' });
 });
@@ -34,5 +19,21 @@ router.get('/start', function(req, res, next) {
 	const data = readPolylinesJson()
 	res.render('polylines', { polylines: data });
 });
+
+
+function writePolylinesJson(polylines) {
+	var json = JSON.stringify(polylines);
+
+	fs.writeFile('./public/json/polylines.json', json, 'utf8', (err) => { 
+		if(err)
+			throw err
+		else
+			console.log('wrote JSON to polylines.json')
+	});
+}
+
+function readPolylinesJson() {
+	return fs.readFileSync('./public/json/polylines.json', 'utf8');
+}
 
 module.exports = router;
