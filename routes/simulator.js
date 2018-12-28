@@ -25,7 +25,6 @@ router.get('/', function(req, res, next) {
 
 router.get('/store', function(req, res, next) {
 	DirectionsAPI.getSimulatorPolylines((polylines) => {
-		// console.log('json: ',json)
 		writePolylinesJson(polylines)
 	})
   	res.render('message', {message: 'Storing new polylines...'});
