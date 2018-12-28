@@ -4,6 +4,10 @@ var fs = require('fs');
 
 var DirectionsAPI = require('../utils/DirectionsAPI')
 
+// ####################################
+// ##########    ROUTING    ###########
+// ####################################
+
 router.get('/', function(req, res, next) {
 	res.render('simulator', { title: 'Uber Clone Simulator' });
 });
@@ -19,6 +23,12 @@ router.get('/start', function(req, res, next) {
 	const data = readPolylinesJson()
 	res.render('polylines', { polylines: data });
 });
+
+module.exports = router;
+
+// ####################################
+// ######### 	FUNCTIONS    ##########
+// ####################################
 
 
 function writePolylinesJson(polylines) {
@@ -36,4 +46,3 @@ function readPolylinesJson() {
 	return fs.readFileSync('./public/json/polylines.json', 'utf8');
 }
 
-module.exports = router;
