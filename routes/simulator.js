@@ -26,7 +26,13 @@ router.get('/store', function(req, res, next) {
 })
 
 router.get('/start', function(req, res, next) {
-  	res.render('polylines', { polylines: store });
+	fs.readFile('./public/json/polylines.json', function read(err, data) {
+	    if (err) {
+	        throw err;
+	    }
+  		
+  		res.render('polylines', { polylines: data });
+	});
 });
 
 module.exports = router;
