@@ -4,7 +4,6 @@ var fs = require('fs');
 
 var DirectionsAPI = require('../utils/DirectionsAPI')
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
 	res.render('simulator', { title: 'Uber Clone Simulator' });
 });
