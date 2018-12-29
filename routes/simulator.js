@@ -46,20 +46,19 @@ function createSimulatedDriverJson(polylines) {
 	for(var i = 0; i < polylines.length; i++) {
 		data.push(createSimulatedDriver(i, polylines[i]))
 	}
-	
-	console.log('createPolylineJson driver: ', JSON.stringify(data))
+
+	return JSON.stringify(data)
 }
 
 function writeSimulationJson(polylines) {
-	var json = JSON.stringify(polylines);
+	var json = createSimulatedDriverJson(polylines)
 
-	createSimulatedDriverJson(polylines)
-	// fs.writeFile('./public/json/polylines.json', json, 'utf8', (err) => { 
-	// 	if(err)
-	// 		throw err
-	// 	else
-	// 		console.log('wrote JSON to polylines.json')
-	// });
+	fs.writeFile('./public/json/polylines.json', json, 'utf8', (err) => { 
+		if(err)
+			throw err
+		else
+			console.log('wrote JSON to polylines.json')
+	});
 }
 
 function readPolylinesJson() {
