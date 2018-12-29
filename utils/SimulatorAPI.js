@@ -1,5 +1,3 @@
-exports.
-
 function loopThruPolyline(polyline, cb) {
 
 }
@@ -14,6 +12,10 @@ function simulateDriverOnPolyline(uid, polyline) {
     })
 }
 
+
+function getPolyline(index) {
+    
+}
 
 //Iterates through all polylines & returns an array of the 1st coordinate for each polyline
 export function getCoordinateFromPolylines(polylines) {

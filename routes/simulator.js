@@ -16,13 +16,19 @@ router.get('/store', function(req, res, next) {
 	DirectionsAPI.getSimulatorPolylines((polylines) => {
 		writeSimulationJson(polylines)
 	})
-  	res.render('message', {message: 'Storing new polylines...'});
+  	res.render('message', { message: 'Storing new polylines...' });
 })
 
 router.get('/start', function(req, res, next) {
 	const data = readPolylinesJson()
-	res.render('polylines', { polylines: data });
+	res.render('message', { message: 'Starting simulation...' });
 });
+
+router.get('/data', function(req, res, next) {
+	const data = readPolylinesJson()
+	res.render('polylines', { polylines: data });
+})
+
 
 module.exports = router;
 
