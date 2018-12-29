@@ -18,8 +18,6 @@ var firebaseCredentials = {
   databaseURL: config.firebase.databaseURL,
 }
 
-console.log('GOOGLE CREDENTIALS: ', config.googleDirectionsAPI.key)
-console.log('FIREBASE CREDENTIALS: ', firebaseCredentials)
 firebase.initializeApp(firebaseCredentials);
 
 // view engine setup
