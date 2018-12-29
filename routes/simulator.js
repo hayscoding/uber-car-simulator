@@ -56,7 +56,7 @@ function simulateDriverOnPolyline(simDriver) {
 	updateDriverCoord(simDriver.uid, simDriver.polyline[simDriver.currentIndex])
 
 	if(simDriver.currentIndex < simDriver.polyline.length-1) {
-		setTimeout(() => { simulateDriverOnPolyline(simDriver) }, 10)
+		setTimeout(() => { simulateDriverOnPolyline(simDriver) }, 2000)
 		simDriver.currentIndex++
 	}
 }
