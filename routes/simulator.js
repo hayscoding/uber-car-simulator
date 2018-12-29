@@ -48,15 +48,13 @@ function runSimulation(simDrivers) {
 
 function simulateDriverOnPolyline(simDriver) {
     simDriver.polyline.forEach((coord) => {
-		console.log('polyline coord: ', coord)
+    	updateDriverCoord(simDriver.uid, coord)
 	})
 }
 
-function updateDriverLocation(uid, coord) {
-
+function updateDriverCoord(uid, coord) {
+	console.log('updateDriverLocation()\nuid: ', uid, '\ncoord: ', coord)
 }
-
-
 
 function getPolyline(index) {
 
