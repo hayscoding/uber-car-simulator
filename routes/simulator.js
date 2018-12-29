@@ -52,22 +52,23 @@ function foo(msg) {
 }
 
 function simulateDriverOnPolyline(simDriver) {
-	getNextCoord(simDriver)
+	console.log('getNextCoord() index: ',  simDriver.currentIndex)
+	updateDriverCoord(simDriver.uid, simDriver.polyline[simDriver.currentIndex])
 
-	if(simDriver.currentIndex < simDriver.polyline.length) {
+	if(simDriver.currentIndex < simDriver.polyline.length-1) {
+		setTimeout(() => { simulateDriverOnPolyline(simDriver) }, 10)
 		simDriver.currentIndex++
-		setTimeout(() => { simulateDriverOnPolyline(simDriver) }, 50)
 	}
 }
 
-function getNextCoord(simDriver) {
-	console.log('getNextCoord() index: ', simDriver.uid, simDriver.currentIndex)
-	// var nextIndex = simDriver.currentIndex
-}
-
-
 function updateDriverCoord(uid, coord) {
-	GeoFireAPI.setDriverLocation(uid, coord.latitude, coord.longitude)
+	console.log('getNextCoord() index: ', uid, coord.latitude, 
+		coord.longitude)
+	GeoFireAPI.setDriverLocation(
+		uid, 
+		coord.latitude, 
+		coord.longitude
+	)
 }
 
 function createSimulatedDriver(index, polyline) {
