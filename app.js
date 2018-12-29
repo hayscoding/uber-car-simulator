@@ -16,9 +16,6 @@ var firebaseCredentials = {
   apiKey: config.firebase.apiKey,
   authDomain: config.firebase.authDomain,
   databaseURL: config.firebase.databaseURL,
-  // projectId: config.FB_PROJECT,
-  // storageBucket: config.FB_STORAGE_BUCKET,
-  // messagingSenderId: config.FB_MSG_ID
 }
 
 console.log('GOOGLE CREDENTIALS: ', config.googleDirectionsAPI.key)
