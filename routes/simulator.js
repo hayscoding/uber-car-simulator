@@ -26,7 +26,7 @@ router.get('/start', function(req, res, next) {
 
 router.get('/data', function(req, res, next) {
 	const data = readPolylinesJson()
-	res.render('polylines', { polylines: data });
+	res.render('data', { data: data });
 })
 
 
