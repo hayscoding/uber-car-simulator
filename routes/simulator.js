@@ -47,11 +47,19 @@ function runSimulation(simDrivers) {
     })
 }
 
-function simulateDriverOnPolyline(simDriver) {
-    simDriver.polyline.forEach((coord) => {
-    	updateDriverCoord(simDriver.uid, coord)
-	})
+
+async function simulateDriverOnPolyline(simDriver) {
+	getNextCoord(simDriver)
+ //    simDriver.polyline.forEach((coord) => {
+ //    	updateDriverCoord(simDriver.uid, coord)
+	// })
 }
+
+function getNextCoord(simDriver) {
+	console.log('getNextCoord() index: ', simDriver.uid, simDriver.currentIndex)
+	// var nextIndex = simDriver.currentIndex
+}
+
 
 function updateDriverCoord(uid, coord) {
 	GeoFireAPI.setDriverLocation(uid, coord.latitude, coord.longitude)

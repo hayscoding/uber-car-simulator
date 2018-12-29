@@ -29,7 +29,7 @@ const watchLocation =  (uid) => {
 	})
 }
 
- const setUserLocation = (uid, lat, lon) => {
+const setUserLocation = (uid, lat, lon) => {
 	console.log('setUserCoord()')
 	const firebaseRef = firebase.database().ref()
 	const geoFire = new GeoFire(firebaseRef.child('users/'+uid))
