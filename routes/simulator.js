@@ -12,6 +12,11 @@ router.get('/', function(req, res, next) {
 	res.render('simulator', { title: 'Uber Clone Simulator' });
 });
 
+router.get('/start', function(req, res, next) {
+	console.log('simDrivers: ', getSimulatedDrivers())
+	res.render('message', { message: 'Starting simulation...' });
+});
+
 router.get('/store', function(req, res, next) {
 	DirectionsAPI.getSimulatorPolylines((polylines) => {
 		writeSimulationJson(polylines)
@@ -19,16 +24,10 @@ router.get('/store', function(req, res, next) {
   	res.render('message', { message: 'Storing new polylines...' });
 })
 
-router.get('/start', function(req, res, next) {
-	const data = readPolylinesJson()
-	res.render('message', { message: 'Starting simulation...' });
-});
-
 router.get('/data', function(req, res, next) {
 	const data = readPolylinesJson()
 	res.render('data', { data: data });
 })
-
 
 module.exports = router;
 
@@ -36,14 +35,43 @@ module.exports = router;
 // ######### 	FUNCTIONS    ##########
 // ####################################
 
+function getSimulatedDrivers() {
+	return JSON.parse(readPolylinesJson())
+}
+
+function runSimulation(simDrivers) {
+    // simDrivers.forEach((simDriver) => {
+    //     simulateDriverOnPolyline(simDriver.uid, simDriver.polyline)
+    // })
+}
+
+function loopThruPolyline(polyline, cb) {
+
+}
+
+function updateDriverLocation(uid, coord) {
+
+}
+
+function simulateDriverOnPolyline(uid, polyline) {
+    loopThruPolyline(polyline, (coord) => {
+        updateDriverLocation(uid, coord)
+    })
+}
+
+
+function getPolyline(index) {
+
+}
+
 function createSimulatedDriver(index, polyline) {
 	const uid = 'simulated'+index
 
 	return {
-			uid: uid,
-			currentIndex: 0,
-			polyline: polyline,
-		}
+		uid: uid,
+		currentIndex: 0,
+		polyline: polyline,
+	}
 }
 
 function createSimulatedDriverJson(polylines) {
