@@ -52,7 +52,7 @@ function foo(msg) {
 }
 
 function simulateDriverOnPolyline(simDriver) {
-	console.log('getNextCoord() index: ',  simDriver.currentIndex)
+	// console.log('getNextCoord() index: ',  simDriver.currentIndex)
 	updateDriverCoord(simDriver.uid, simDriver.polyline[simDriver.currentIndex])
 
 	if(simDriver.currentIndex < simDriver.polyline.length-1) {
@@ -62,8 +62,7 @@ function simulateDriverOnPolyline(simDriver) {
 }
 
 function updateDriverCoord(uid, coord) {
-	console.log('getNextCoord() index: ', uid, coord.latitude, 
-		coord.longitude)
+	// console.log('getNextCoord() index: ', uid, coord.latitude, coord.longitude)
 	GeoFireAPI.setDriverLocation(
 		uid, 
 		coord.latitude, 
