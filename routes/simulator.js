@@ -46,9 +46,8 @@ function createSimulatedDriverJson(polylines) {
 	for(var i = 0; i < polylines.length; i++) {
 		data.push(createSimulatedDriver(i, polylines[i]))
 	}
-
-	console.log('createPolylineJson driver: ', data)
-	// var json = JSON.stringify(polylines);
+	
+	console.log('createPolylineJson driver: ', JSON.stringify(data))
 }
 
 function writeSimulationJson(polylines) {
