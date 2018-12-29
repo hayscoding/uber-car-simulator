@@ -44,16 +44,16 @@ const watchLocation =  (uid) => {
 }
 
 exports.setDriverLocation = (uid, lat, lon) => {
-	console.log('setDriverLocation()\nuid: ', uid, '\nlat: ', lat, '\nlon: ', lon)
-// 	const firebaseRef = firebase.database().ref()
-// 	const geoFire = new GeoFire(firebaseRef.child('drivers/'))
+	// console.log('setDriverLocation()\nuid: ', uid, '\nlat: ', lat, '\nlon: ', lon)
+	const firebaseRef = firebase.database().ref()
+	const geoFire = new GeoFire(firebaseRef.child('drivers/'))
 
-// 	geoFire.set('location', [lat, lon] )//refactor this to function
-// 	.then(() => {
-// 		console.log("Key has been added to GeoFire");
-// 	}, (error) => {
-// 		console.log("Error: " + error);
-// 	}
+	geoFire.set('location', [lat, lon] )//refactor this to function
+	.then(() => {
+			console.log("Key has been added to GeoFire");
+		}, (error) => {
+			console.log("Error: " + error);
+		})
 }
 
  const getMarkerLocation = (uid, cb) => {

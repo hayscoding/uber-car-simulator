@@ -12,14 +12,18 @@ var simulatorRouter = require('./routes/simulator');
 var app = express();
 var config = require('./config');
 
-firebase.initializeApp({
-	apiKey: config.FB_KEY,
-	authDomain: config.FB_AUTH_DOMAIN,
-	databaseURL: config.FB_DB_URL,
-	projectId: config.FB_PROJECT,
-	storageBucket: config.FB_STORAGE_BUCKET,
-	messagingSenderId: config.FB_MSG_ID
-});
+var firebaseCredentials = {
+  apiKey: config.firebase.apiKey,
+  authDomain: config.firebase.authDomain,
+  databaseURL: config.firebase.databaseURL,
+  // projectId: config.FB_PROJECT,
+  // storageBucket: config.FB_STORAGE_BUCKET,
+  // messagingSenderId: config.FB_MSG_ID
+}
+
+console.log('GOOGLE CREDENTIALS: ', config.googleDirectionsAPI.key)
+console.log('FIREBASE CREDENTIALS: ', firebaseCredentials)
+firebase.initializeApp(firebaseCredentials);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
