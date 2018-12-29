@@ -56,10 +56,6 @@ function updateDriverCoord(uid, coord) {
 	console.log('updateDriverLocation()\nuid: ', uid, '\ncoord: ', coord)
 }
 
-function getPolyline(index) {
-
-}
-
 function createSimulatedDriver(index, polyline) {
 	const uid = 'simulated'+index
 

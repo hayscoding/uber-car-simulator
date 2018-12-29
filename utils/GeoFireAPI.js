@@ -15,11 +15,6 @@ import { Location } from 'expo'
 
 import * as FirebaseAPI from './FirebaseAPI'
 
-//Automatically set to 'production' when published through Expo
-var env = process.env.NODE_ENV || 'development';
-// var env = 'production'
-var config = require('../config')[env];
-
 const OPTIONS = {
 	enableHighAccuracy: true,
 	timeInterval: 100000,
