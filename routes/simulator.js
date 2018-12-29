@@ -3,6 +3,7 @@ var router = express.Router();
 var fs = require('fs');
 
 var DirectionsAPI = require('../utils/DirectionsAPI')
+var GeoFireAPI = require('../utils/GeoFireAPI')
 
 // ####################################
 // ##########    ROUTING    ###########
@@ -53,7 +54,8 @@ function simulateDriverOnPolyline(simDriver) {
 }
 
 function updateDriverCoord(uid, coord) {
-	console.log('updateDriverLocation()\nuid: ', uid, '\ncoord: ', coord)
+	// console.log('updateDriverLocation()\nuid: ', uid, '\ncoord: ', coord)
+	GeoFireAPI.setDriverLocation()
 }
 
 function createSimulatedDriver(index, polyline) {

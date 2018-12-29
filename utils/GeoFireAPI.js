@@ -8,12 +8,8 @@
 ----------------------------------------------------------------
 <<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>>
 */
-
-import firebase from 'firebase'
-import GeoFire from 'geofire'
-import { Location } from 'expo'
-
-import * as FirebaseAPI from './FirebaseAPI'
+var firebase = require('firebase')
+var GeoFire = require('geofire')
 
 const OPTIONS = {
 	enableHighAccuracy: true,
@@ -26,15 +22,14 @@ const OPTIONS = {
 --------------     DATABASE FUNCTIONS    --------------
 #######################################################
 */
-
-export const watchLocation =  (uid) => {
+const watchLocation =  (uid) => {
 	console.log('watchLocation()')
 	return Location.watchPositionAsync(OPTIONS, (pos) => {
 		setUserLocation(uid, pos.coords.latitude, pos.coords.longitude)
 	})
 }
 
-export const setUserLocation = (uid, lat, lon) => {
+ const setUserLocation = (uid, lat, lon) => {
 	console.log('setUserCoord()')
 	const firebaseRef = firebase.database().ref()
 	const geoFire = new GeoFire(firebaseRef.child('users/'+uid))
@@ -48,21 +43,20 @@ export const setUserLocation = (uid, lat, lon) => {
 	)
 }
 
-export const setDriverLocation = (uid, lat, lon) => {
+exports.setDriverLocation = (uid, lat, lon) => {
 	console.log('setDriverLocation()')
-	const firebaseRef = firebase.database().ref()
-	const geoFire = new GeoFire(firebaseRef.child('drivers/'))
+// 	const firebaseRef = firebase.database().ref()
+// 	const geoFire = new GeoFire(firebaseRef.child('drivers/'))
 
-	geoFire.set('location', [lat, lon]) //refactor this to function
-		.then(() => {
-			console.log("Key has been added to GeoFire");
-		}, (error) => {
-			console.log("Error: " + error);
-		}
-	)
+// 	geoFire.set('location', [lat, lon] )//refactor this to function
+// 	.then(() => {
+// 		console.log("Key has been added to GeoFire");
+// 	}, (error) => {
+// 		console.log("Error: " + error);
+// 	}
 }
 
-export const getMarkerLocation = (uid, cb) => {
+ const getMarkerLocation = (uid, cb) => {
 	const firebaseRef = firebase.database().ref()
 	const geoFire = new GeoFire(firebaseRef.child('drivers/'))
 
@@ -74,7 +68,7 @@ export const getMarkerLocation = (uid, cb) => {
 	})
 }
 
-export const getUserLocation = (uid, cb) => {
+ const getUserLocation = (uid, cb) => {
 	console.log('get user location called')
 
 	FirebaseAPI.getUser(uid, (user) => {
@@ -105,13 +99,13 @@ const newDriver = (key, location) => {
 	return driver
 }
 
-export const setReadyRegistration = (geoQuery) => {
+ const setReadyRegistration = (geoQuery) => {
 	geoQuery.on("ready", function() {
 		console.log("GeoQuery has loaded and fired all other events for initial data");
 	});
 }
 
-export const setKeyEnteredRegistration = (geoQuery, cb) => {
+ const setKeyEnteredRegistration = (geoQuery, cb) => {
 	geoQuery.on("key_entered", function(key, location, distance) {
 		console.log(key + " entered query at " + location + " (" + distance + " km from center)");
 		const driver = newDriver(key, location)
@@ -119,7 +113,7 @@ export const setKeyEnteredRegistration = (geoQuery, cb) => {
 	});
 }
 
-export const setKeyMovedRegistration = (geoQuery, cb) => {
+ const setKeyMovedRegistration = (geoQuery, cb) => {
 	geoQuery.on("key_moved", function(key, location, distance) {
 		console.log(key + " moved within query to " + location + " (" + distance + " km from center)");
 		const driver = newDriver(key, location)
@@ -127,7 +121,7 @@ export const setKeyMovedRegistration = (geoQuery, cb) => {
 	});
 }
 
-export const setKeyExitedRegistration = (geoQuery, cb) => {
+ const setKeyExitedRegistration = (geoQuery, cb) => {
 	geoQuery.on("key_exited", function(key, location, distance) {
 		console.log(key + " exited query to " + location + " (" + distance + " km from center)");
 		const driver = newDriver(key, location)
@@ -135,11 +129,11 @@ export const setKeyExitedRegistration = (geoQuery, cb) => {
 	});
 }
 
-export const cancelGeoQuery = (geoQuery) => {
+ const cancelGeoQuery = (geoQuery) => {
 	geoQuery.cancel()
 }
 
-export const getGeoQuery = (uid, cb) => {
+ const getGeoQuery = (uid, cb) => {
 	const firebaseRef = firebase.database().ref()
 	const geoFire = new GeoFire(firebaseRef.child('drivers'))
 
