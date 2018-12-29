@@ -3,7 +3,7 @@ require('dotenv').config();
 
 module.exports = {
     googleDirectionsAPI: {
-    	key: process.env.GOOGLE_DIRECTIONS_KEY, //Delete this key from app & handle from server for production use
+    	key: process.env.GOOGLE_DIRECTIONS_KEY,
     },
     firebase: {
     	apiKey: process.env.FIREBASE_KEY,
