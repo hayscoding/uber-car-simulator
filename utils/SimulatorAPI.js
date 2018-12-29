@@ -1,3 +1,20 @@
+exports.
+
+function loopThruPolyline(polyline, cb) {
+
+}
+
+function updateDriverLocation(uid, coord) {
+
+}
+
+function simulateDriverOnPolyline(uid, polyline) {
+    loopThruPolyline(polyline, (coord) => {
+        updateDriverLocation(uid, coord)
+    })
+}
+
+
 //Iterates through all polylines & returns an array of the 1st coordinate for each polyline
 export function getCoordinateFromPolylines(polylines) {
     var coordinates = []
@@ -22,29 +39,4 @@ export function animateThruCoords(coords) {
 
     if(coords.length != 0)
         animate(coords[0], () => { animateThruCoords(nextCoords) })
-}
-
-export function startAnimation() {
-    if(state.route != null) {
-        console.log('STARTANIMATION() ROUTE: ', state.route.length, '\nFIRST COORD: ', state.route[0])
-        animateThruCoords(0, state.route)
-    }
-}
-
-
-export function animateMarker(index, coord, cb) {
-    // console.log('animateMarker', coord)
-    const nextCoord = {
-        latitude: coord.latitude,
-        longitude: coord.longitude,
-    };
-
-    state.markerCoordinates[index].timing(nextCoord).start(() => { cb() });
-}
-
-export function startAnimation() {
-    if(state.route != null) {
-        console.log('STARTANIMATION() ROUTE: ', state.route.length, '\nFIRST COORD: ', state.route[0])
-        animateThruCoords(0, state.route)
-    }
 }

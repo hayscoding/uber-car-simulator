@@ -30,15 +30,36 @@ module.exports = router;
 // ######### 	FUNCTIONS    ##########
 // ####################################
 
+function createSimulatedDriver(index, polyline) {
+	const uid = 'simulated'+index
+
+	return {
+			uid: uid,
+			currentIndex: 0,
+			polyline: polyline,
+		}
+}
+
+function createSimulatedDriverJson(polylines) {
+	var data = []
+
+	for(var i = 0; i < polylines.length; i++) {
+		console.log('createPolylineJson index: ', i)
+	}
+
+	// var json = JSON.stringify(polylines);
+}
+
 function writePolylinesJson(polylines) {
 	var json = JSON.stringify(polylines);
 
-	fs.writeFile('./public/json/polylines.json', json, 'utf8', (err) => { 
-		if(err)
-			throw err
-		else
-			console.log('wrote JSON to polylines.json')
-	});
+	createSimulatedDriverJson(polylines)
+	// fs.writeFile('./public/json/polylines.json', json, 'utf8', (err) => { 
+	// 	if(err)
+	// 		throw err
+	// 	else
+	// 		console.log('wrote JSON to polylines.json')
+	// });
 }
 
 function readPolylinesJson() {
