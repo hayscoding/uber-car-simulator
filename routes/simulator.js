@@ -47,10 +47,6 @@ function runSimulation(simDrivers) {
     })
 }
 
-function foo(msg) {
-	console.log(msg)
-}
-
 function simulateDriverOnPolyline(simDriver) {
 	// console.log('getNextCoord() index: ',  simDriver.currentIndex)
 	updateDriverCoord(simDriver.uid, simDriver.polyline[simDriver.currentIndex])
