@@ -13,7 +13,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/start', function(req, res, next) {
-	console.log('simDrivers: ', getSimulatedDrivers())
+	var simDrivers = getSimulatedDrivers()
+	runSimulation(simDrivers)
 	res.render('message', { message: 'Starting simulation...' });
 });
 
@@ -40,9 +41,10 @@ function getSimulatedDrivers() {
 }
 
 function runSimulation(simDrivers) {
-    // simDrivers.forEach((simDriver) => {
-    //     simulateDriverOnPolyline(simDriver.uid, simDriver.polyline)
-    // })
+    simDrivers.forEach((simDriver) => {
+    	console.log('runSimulation() current driver: ', simDriver.uid)
+        // simulateDriverOnPolyline(simDriver.uid, simDriver.polyline)
+    })
 }
 
 function loopThruPolyline(polyline, cb) {
