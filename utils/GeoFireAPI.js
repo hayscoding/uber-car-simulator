@@ -44,7 +44,7 @@ const watchLocation =  (uid) => {
 }
 
 exports.setDriverLocation = (uid, lat, lon) => {
-	console.log('setDriverLocation()')
+	console.log('setDriverLocation()\nuid: ', uid, '\nlat: ', lat, '\nlon: ', lon)
 // 	const firebaseRef = firebase.database().ref()
 // 	const geoFire = new GeoFire(firebaseRef.child('drivers/'))
 

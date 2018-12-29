@@ -54,8 +54,7 @@ function simulateDriverOnPolyline(simDriver) {
 }
 
 function updateDriverCoord(uid, coord) {
-	// console.log('updateDriverLocation()\nuid: ', uid, '\ncoord: ', coord)
-	GeoFireAPI.setDriverLocation()
+	GeoFireAPI.setDriverLocation(uid, coord.latitude, coord.longitude)
 }
 
 function createSimulatedDriver(index, polyline) {
