@@ -59,7 +59,7 @@ function createSimulatedDriverJson(polylines) {
 function writeSimulationJson(polylines) {
 	var json = createSimulatedDriverJson(polylines)
 
-	fs.writeFile('./public/json/polylines.json', json, 'utf8', (err) => { 
+	fs.writeFile('./public/json/simulation.json', json, 'utf8', (err) => { 
 		if(err)
 			throw err
 		else
@@ -68,6 +68,6 @@ function writeSimulationJson(polylines) {
 }
 
 function readPolylinesJson() {
-	return fs.readFileSync('./public/json/polylines.json', 'utf8');
+	return fs.readFileSync('./public/json/simulation.json', 'utf8');
 }
 
