@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/store', function(req, res, next) {
 	DirectionsAPI.getSimulatorPolylines((polylines) => {
-		writePolylinesJson(polylines)
+		writeSimulationJson(polylines)
 	})
   	res.render('message', {message: 'Storing new polylines...'});
 })
@@ -44,14 +44,14 @@ function createSimulatedDriverJson(polylines) {
 	var data = []
 
 	for(var i = 0; i < polylines.length; i++) {
-		const simulatedDriver = createSimulatedDriver(i, polylines[i])
-		console.log('createPolylineJson driver: ', simulatedDriver)
+		data.push(createSimulatedDriver(i, polylines[i]))
 	}
 
+	console.log('createPolylineJson driver: ', data)
 	// var json = JSON.stringify(polylines);
 }
 
-function writePolylinesJson(polylines) {
+function writeSimulationJson(polylines) {
 	var json = JSON.stringify(polylines);
 
 	createSimulatedDriverJson(polylines)
