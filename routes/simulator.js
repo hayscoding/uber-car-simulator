@@ -54,12 +54,10 @@ function foo(msg) {
 function simulateDriverOnPolyline(simDriver) {
 	getNextCoord(simDriver)
 
-	if(simDriver.currentIndex < simDriver.polyline.length)
-	setTimeout(() => { simulateDriverOnPolyline(simDriver) }, 1000)
-	// setTimeout(simulateDriverOnPolyline(simDriver), 50000)
- //    simDriver.polyline.forEach((coord) => {
- //    	updateDriverCoord(simDriver.uid, coord)
-	// })
+	if(simDriver.currentIndex < simDriver.polyline.length) {
+		simDriver.currentIndex++
+		setTimeout(() => { simulateDriverOnPolyline(simDriver) }, 50)
+	}
 }
 
 function getNextCoord(simDriver) {
