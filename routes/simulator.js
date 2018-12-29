@@ -42,24 +42,20 @@ function getSimulatedDrivers() {
 
 function runSimulation(simDrivers) {
     simDrivers.forEach((simDriver) => {
-    	console.log('runSimulation() current driver: ', simDriver.uid)
-        // simulateDriverOnPolyline(simDriver.uid, simDriver.polyline)
+        simulateDriverOnPolyline(simDriver)
     })
 }
 
-function loopThruPolyline(polyline, cb) {
-
+function simulateDriverOnPolyline(simDriver) {
+    simDriver.polyline.forEach((coord) => {
+		console.log('polyline coord: ', coord)
+	})
 }
 
 function updateDriverLocation(uid, coord) {
 
 }
 
-function simulateDriverOnPolyline(uid, polyline) {
-    loopThruPolyline(polyline, (coord) => {
-        updateDriverLocation(uid, coord)
-    })
-}
 
 
 function getPolyline(index) {
