@@ -20,9 +20,17 @@ const routesNearHome = [
 		destination: '2819 Guadalupe St, Austin, TX 78705'
 	},
 	// {
-	// 	origin: '',
-	// 	destination: ''
+	// 	origin: '3110 Guadalupe St suite #400, Austin, TX 78705',
+	// 	destination: '3303 N Lamar Blvd, Austin, TX 78705'
 	// },
+	{
+		origin: '1000 E 41st St, Austin, TX 78751',
+		destination: '3009 Guadalupe St, Austin, TX 78705'
+	},
+	{
+		origin: '3110 Windsor Rd, Austin, TX 78703',
+		destination: '1106 W 38th St, Austin, TX 78705'
+	},
 ]
 
 exports.getSimulatorPolylines = getSimulatorPolylines
