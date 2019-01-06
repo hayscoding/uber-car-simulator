@@ -42,11 +42,23 @@ async function getSimulatorPolylines(cb) {
 	const routes = formatRouteAddresses(routesNearHome)
 	var polylines = []
 
-	for(var i = 0; i < routes.length; i++)
+	for(var i = 0; i < routes.length; i++) {
+		var finalCoords = []
+
 		await getDirections(routes[i].origin, routes[i].destination, (coords) => {
-			polylines.push(coords)
+			finalCoords = coords
 		})
 
+		//reverse coords for seamless looping car route
+		await getDirections(routes[i].destination, routes[i].origin, (coords) => {
+			finalCoords = finalCoords.concat(coords)
+		})
+
+		// if(i == 0)
+		// 	console.log('finalCoords: ', finalCoords)
+		polylines.push(finalCoords)
+	}
+		
 	cb(polylines)
 }
 
