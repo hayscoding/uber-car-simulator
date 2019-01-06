@@ -55,6 +55,9 @@ function simulateDriverOnPolyline(simDriver) {
 	if(simDriver.currentIndex < simDriver.polyline.length-1) {
 		setTimeout(() => { simulateDriverOnPolyline(simDriver) }, getRandomArbitrary(50, 2000))
 		simDriver.currentIndex++
+	} else {
+		simDriver.currentIndex = 0 //start from beginning
+		setTimeout(() => { simulateDriverOnPolyline(simDriver) }, getRandomArbitrary(50, 2000))
 	}
 }
 
