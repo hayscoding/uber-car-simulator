@@ -54,8 +54,6 @@ async function getSimulatorPolylines(cb) {
 			finalCoords = finalCoords.concat(coords)
 		})
 
-		// if(i == 0)
-		// 	console.log('finalCoords: ', finalCoords)
 		polylines.push(finalCoords)
 	}
 		
