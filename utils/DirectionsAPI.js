@@ -19,10 +19,6 @@ const routesNearHome = [
 		origin: '3515 N Lamar Blvd, Austin, TX 78705',
 		destination: '2819 Guadalupe St, Austin, TX 78705'
 	},
-	// {
-	// 	origin: '3110 Guadalupe St suite #400, Austin, TX 78705',
-	// 	destination: '3303 N Lamar Blvd, Austin, TX 78705'
-	// },
 	{
 		origin: '1000 E 41st St, Austin, TX 78751',
 		destination: '3009 Guadalupe St, Austin, TX 78705'
@@ -30,6 +26,26 @@ const routesNearHome = [
 	{
 		origin: '3110 Windsor Rd, Austin, TX 78703',
 		destination: '1106 W 38th St, Austin, TX 78705'
+	},
+	// {
+	// 	origin: '',
+	// 	destination: ''
+	// },
+	{
+		origin: '110 Inner Campus Drive, Austin, TX 78705',
+		destination: '3308 Hampton Rd, Austin, TX 78705'
+	},
+	{
+		origin: '1165 Angelina St, Austin, TX 78702',
+		destination: '2613 Rogers Ave, Austin, TX 78722'
+	},
+	{
+		origin: '603 N Lamar Blvd, Austin, TX 78703',
+		destination: '100 E 27th St, Austin, TX 78705'
+	},
+	{
+		origin: '1144 Airport Blvd, Austin, TX 78702',
+		destination: '3909 N Interstate 35 Frontage Rd, Austin, TX 78722'
 	},
 ]
 
