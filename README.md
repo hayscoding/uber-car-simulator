@@ -13,7 +13,7 @@ Simple server to simulate local cars &amp; update their coords to Firebase.
 Navigate to `http://localhost:3000/simulator/store` to store coordinates for the routes laid out in `utils/DirectionsAPI.js`. This will parse the addresses & store an array of route coordinates for the Simulator to run your cars through.
 
 ## To See Your Simulator Coordinates
-Making sure you Firebase & Google Directions API credentials are set up correctly, navigate to `http://localhost:3000/simulator/data`. This will display all coordinates currently the simulator will use when running. (If you just set it up, it will be empty).
+Making sure your Firebase & Google Directions API credentials are set up correctly, navigate to `http://localhost:3000/simulator/data`. This will display all coordinates the simulator will use when running. (If you just set it up, it will be empty).
  
 ## To Start Your Simulator
 Making sure you have coordinates stored by viewing `http://localhost:3000/simulator/data`, navigate to `http://localhost:3000/simulator/start` in your browser & you can now see the coordinates being updated, in real-time, within your firebase database.
