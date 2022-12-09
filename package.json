@@ -9,7 +9,7 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "dotenv": "^6.2.0",
-    "express": "~4.16.0",
+    "express": "~4.17.3",
     "firebase": "^5.7.2",
     "geofire": "^4.1.2",
     "http-errors": "~1.6.2",
